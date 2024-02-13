@@ -1,0 +1,26 @@
+// DrawerComponent.scss
+
+$drawerWidth: 240px; // Definir o drawerWidth aqui
+
+.main-container {
+  flex-grow: 1;
+  padding: 3px;
+  overflow-x: auto; /* Para permitir rolagem horizontal se a grade for maior que o box */
+  overflow-y: hidden; /* Para esconder a rolagem vertical */
+  max-width: calc(100% - #{$drawerWidth}); /* Definir a largura máxima do box */
+  margin-top: 300-$drawerWidth; /* Adicionar margem à esquerda para compensar a largura do drawer */
+}
+
+.muiDrawer-root {
+  width: $drawerWidth;
+  flex-shrink: 0;
+}
+
+.muiDrawer-paper {
+  width: $drawerWidth;
+  box-sizing: border-box;
+}
+.app-bar {
+    width: calc(100% - #{$drawerWidth});
+    margin-left: $drawerWidth;
+  }
