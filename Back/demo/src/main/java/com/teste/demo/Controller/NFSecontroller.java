@@ -4,16 +4,13 @@ import java.io.IOException;
 import java.util.List;
 // import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+// import com.teste.demo.Services.XMLDataService;
 import org.springframework.web.bind.annotation.*;
 import com.teste.demo.Entities.DadosNFe;
 // import com.teste.demo.Entities.XMLData;
 import com.teste.demo.Helpers.NFSeHelper;
 import com.teste.demo.Services.DadosNFeService;
-// import com.teste.demo.Services.XMLDataService;
-
 
 @RestController
 public class NFSecontroller {
@@ -44,6 +41,7 @@ public class NFSecontroller {
     }
 
     @GetMapping("/buscartodosxml")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<DadosNFe> buscarTodos() {
         return dadosNFeService.buscarTodos();
     }

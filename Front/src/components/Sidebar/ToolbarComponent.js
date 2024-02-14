@@ -2,14 +2,14 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import "./Sidebar.scss";
+import "./Styles/Sidebar.scss";
 export default function ToolbarComponent() {
   return (
-    <AppBar position="fixed" className="app-bar">
+    <AppBar className="app-bar">
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          XML
-        </Typography>
+        <div className="app-bar-title">
+          <Typography>XML visualizador</Typography>
+        </div>
       </Toolbar>
     </AppBar>
   );
