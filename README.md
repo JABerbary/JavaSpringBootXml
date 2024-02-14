@@ -6,7 +6,7 @@
 
 Para iniciar o frontend, execute o seguinte comando:
 
-```bash
+
 npm start
 
 
