@@ -1,4 +1,4 @@
-# Projeto XYZ
+# Projeto teste_pratico
 
 ## Pacotes de Instalação
 
@@ -14,14 +14,14 @@ Caminho da database
 ## Estrutura de Pastas
 java/
 └── com/
-└── teste/
-└── demo/
-└── Data/
-└── database.sql
+ └── teste/
+   └── demo/
+    └── Data/ 
+      └── database.sql
 
 ## Acompanhamento
 
-## Backend
+### Backend
 
 - [x] Config Spring Boot / Maven
 - [x] Config versões variável de ambiente
@@ -36,7 +36,7 @@ java/
 - [ ] Code Coverage
 - [ ] Refatoração
 
-## Frontend
+### Frontend
 
 - [x] Componentização
 - [x] Implementação Estrutura de pastas
