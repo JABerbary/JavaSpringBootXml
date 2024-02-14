@@ -1,17 +1,14 @@
 # Projeto teste_pratico
 
-## Pacotes de Instalação
-
 ### Frontend
 
 Para iniciar o frontend, execute o seguinte comando:
 
-
 npm start
 
 
-Caminho da database
-## Estrutura de Pastas
+##Caminho da database
+
 java/
 └── com/
  └── teste/
