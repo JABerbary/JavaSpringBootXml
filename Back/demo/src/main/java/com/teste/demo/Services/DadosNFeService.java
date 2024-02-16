@@ -29,7 +29,6 @@ public class DadosNFeService {
         return repository.findAll();
     }
 
-
     public void atualizar(DadosNFe dadosNFe) {
         repository.save(dadosNFe);
     }

@@ -1,6 +1,6 @@
 // DrawerComponent.scss
 
-$drawerWidth: 240px; // Definir o drawerWidth aqui
+$drawerWidth: 240px; 
 
 .main-container {
   flex-grow: 1;
@@ -26,5 +26,5 @@ $drawerWidth: 240px; // Definir o drawerWidth aqui
     z-index: 1; 
   }
   .app-bar-title {
-    margin-left: 200px; // Adiciona margem ao título da AppBar
+    margin-left: 50%; 
   }
