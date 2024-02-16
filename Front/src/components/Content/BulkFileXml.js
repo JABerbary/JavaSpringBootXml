@@ -9,35 +9,26 @@ export default function BulkFileXml() {
   const [dragState, setDragState] = useState(false); // Estado para acompanhar o estado de arrasto
   const [dropMsg, setDropMsg] = useState(
     "Arraste o arquivo nesta área ou clique para fazer upload"
-  ); // Estado para exibir a mensagem de soltar
+  );
 
-  const dropFileUpload = (e) => {
-    // Lógica para manipular o evento de soltar arquivos na área de soltar
-  };
+  const dropFileUpload = (e) => {};
 
-  const dragOverHandler = (e) => {
-    // Lógica para manipular o evento de arrastar sobre a área de soltar
-  };
+  const dragOverHandler = (e) => {};
 
   const handleDragEnter = (e) => {
-    // Lógica para manipular o evento de entrada do mouse na área de soltar
     setDragState(true);
   };
 
   const handleDragLeave = (e) => {
-    // Lógica para manipular o evento de saída do mouse da área de soltar
     setDragState(false);
   };
 
   const traditionalFileUpload = (e) => {
-    // Lógica para manipular o evento de seleção de arquivo tradicional
     const selectedFiles = Array.from(e.target.files);
     setFiles(selectedFiles);
   };
 
-  const _textContent = (value) => {
-    // Lógica para manipular o conteúdo do texto
-  };
+  const _textContent = (value) => {};
 
   return (
     <>
