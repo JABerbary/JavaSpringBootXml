@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import "./content.scss";
+import "./Styles/content.scss";
 
 export default function BulkFileXml() {
   const [selectedMethod, setSelectedMethod] = useState("file"); // Estado para acompanhar o método selecionado (arquivo ou texto)
