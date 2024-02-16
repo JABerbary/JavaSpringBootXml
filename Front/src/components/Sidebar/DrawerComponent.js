@@ -6,10 +6,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import FileIcon from "@mui/icons-material/InsertDriveFile";
-import ArchiveIcon from "@mui/icons-material/Archive";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Box from "@mui/material/Box";
-import GridDados from "../Grids/GridDados";
-import GridArquivos from "../Grids/GridArquivos";
+import GridDados from "../Content/GridDados";
+import BulkFileXml from "../Content/BulkFileXml";
 import "./Styles/Sidebar.scss";
 
 export default function DrawerComponent() {
@@ -37,11 +37,11 @@ export default function DrawerComponent() {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => handleGridChange("arquivos")}>
+            <ListItemButton onClick={() => handleGridChange("file")}>
               <ListItemIcon>
-                <ArchiveIcon />
+                <CloudUploadIcon />
               </ListItemIcon>
-              Visualizar Arquivos
+              Inserir Arquivos
             </ListItemButton>
           </ListItem>
         </List>
@@ -51,7 +51,7 @@ export default function DrawerComponent() {
       <Box component="main" className="main-container">
         <Toolbar />
         {showGrid === "dados" && <GridDados />}
-        {showGrid === "arquivos" && <GridArquivos />}
+        {showGrid === "file" && <BulkFileXml />}
       </Box>
     </>
   );
