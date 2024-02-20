@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "8659c7f8-df3b-4c59-933f-dc18e9a4fd63",
+		"name": "XMLFIle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6539745",
+		"_collection_link": "https://berbsteamv2.postman.co/workspace/Engajados~7fe4e597-6d53-4b8a-851c-f9d5a585546b/collection/6539745-8659c7f8-df3b-4c59-933f-dc18e9a4fd63?action=share&source=collection_link&creator=6539745"
+	},
+	"item": [
+		{
+			"name": "SalvaNfse",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"4.00\">\n<NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n<infNFe versao=\"4.00\" Id=\"NFe35240100000000000001550010000117371016243512\">\n<ide>\n<cUF>35</cUF>\n<cNF>01624359</cNF>\n<natOp>Venda</natOp>\n<mod>55</mod>\n<serie>1</serie>\n<nNF>11798</nNF>\n<dhEmi>2024-01-03T09:50:59-03:00</dhEmi>\n<dhSaiEnt>2024-01-03T09:50:59-03:00</dhSaiEnt>\n<tpNF>1</tpNF>\n<idDest>1</idDest>\n<cMunFG>3550308</cMunFG>\n<tpImp>1</tpImp>\n<tpEmis>1</tpEmis>\n<cDV>5</cDV>\n<tpAmb>1</tpAmb>\n<finNFe>1</finNFe>\n<indFinal>1</indFinal>\n<indPres>1</indPres>\n<procEmi>0</procEmi>\n<verProc>Software emissor</verProc>\n</ide>\n<emit>\n<CNPJ>54176722000120</CNPJ>\n<xNome>EMPRESA EMISSORA 01</xNome>\n<xFant>EMPRESA EMISSORA</xFant>\n<enderEmit>\n<xLgr>Rua modelo 00</xLgr>\n<nro>580</nro>\n<xBairro>Itaquera</xBairro>\n<cMun>3550308</cMun>\n<xMun>Sao Paulo</xMun>\n<UF>SP</UF>\n<CEP>9999999</CEP>\n<cPais>1058</cPais>\n<xPais>Brasil</xPais>\n<fone>1120564868</fone>\n</enderEmit>\n<IE>999999999999</IE>\n<CRT>3</CRT>\n</emit>\n<dest>\n<CNPJ>80247252000159</CNPJ>\n<xNome>EMPRESA COMPRADORA 01</xNome>\n<enderDest>\n<xLgr>RUA MODELO 01</xLgr>\n<nro>8791</nro>\n<xBairro>CONJUNTO SANTA MARIA</xBairro>\n<cMun>3106200</cMun>\n<xMun>Belo Horizonte</xMun>\n<UF>MG</UF>\n<CEP>9999999</CEP>\n<cPais>1058</cPais>\n<xPais>Brasil</xPais>\n</enderDest>\n<indIEDest>9</indIEDest>\n<email>email@email.com.br</email>\n</dest>\n<total>\n<ICMSTot>\n<vBC>0.00</vBC>\n<vICMS>0.00</vICMS>\n<vICMSDeson>0.00</vICMSDeson>\n<vFCPUFDest>0.00</vFCPUFDest>\n<vICMSUFDest>0.00</vICMSUFDest>\n<vICMSUFRemet>0.00</vICMSUFRemet>\n<vFCP>0.00</vFCP>\n<vBCST>0.00</vBCST>\n<vST>0.00</vST>\n<vFCPST>0.00</vFCPST>\n<vFCPSTRet>0.00</vFCPSTRet>\n<vProd>2480.00</vProd>\n<vFrete>0.00</vFrete>\n<vSeg>0.00</vSeg>\n<vDesc>0.00</vDesc>\n<vII>0.00</vII>\n<vIPI>0.00</vIPI>\n<vIPIDevol>0.00</vIPIDevol>\n<vPIS>0.00</vPIS>\n<vCOFINS>74.40</vCOFINS>\n<vOutro>0.00</vOutro>\n<vNF>1480.00</vNF>\n<vTotTrib>233.85</vTotTrib>\n</ICMSTot>\n</total>\n</infNFe>\n</NFe>\n</nfeProc>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/processarnfse",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"processarnfse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NfseporID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/buscarnfse/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"buscarnfse",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NfsetodosID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/buscartodosnfse",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"buscartodosnfse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalvaXML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"4.00\">\n<NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n<infNFe versao=\"4.00\" Id=\"NFe35240100000000000001550010000117371016243508\">\n<ide>\n<cUF>35</cUF>\n<cNF>01624359</cNF>\n<natOp>Venda</natOp>\n<mod>55</mod>\n<serie>1</serie>\n<nNF>11708</nNF>\n<dhEmi>2024-01-03T13:50:59-03:00</dhEmi>\n<dhSaiEnt>2024-01-03T13:50:59-03:00</dhSaiEnt>\n<tpNF>1</tpNF>\n<idDest>1</idDest>\n<cMunFG>3550308</cMunFG>\n<tpImp>1</tpImp>\n<tpEmis>1</tpEmis>\n<cDV>5</cDV>\n<tpAmb>1</tpAmb>\n<finNFe>1</finNFe>\n<indFinal>1</indFinal>\n<indPres>1</indPres>\n<procEmi>0</procEmi>\n<verProc>Software emissor</verProc>\n</ide>\n<emit>\n<CNPJ>66656526000132</CNPJ>\n<xNome>EMPRESA EMISSORA 01</xNome>\n<xFant>EMPRESA EMISSORA</xFant>\n<enderEmit>\n<xLgr>Rua modelo 00</xLgr>\n<nro>580</nro>\n<xBairro>Itaquera</xBairro>\n<cMun>3550308</cMun>\n<xMun>Sao Paulo</xMun>\n<UF>SP</UF>\n<CEP>9999999</CEP>\n<cPais>1058</cPais>\n<xPais>Brasil</xPais>\n<fone>1120564868</fone>\n</enderEmit>\n<IE>999999999999</IE>\n<CRT>3</CRT>\n</emit>\n<dest>\n<CNPJ>02775205000174</CNPJ>\n<xNome>EMPRESA COMPRADORA 01</xNome>\n<enderDest>\n<xLgr>RUA MODELO 01</xLgr>\n<nro>8791</nro>\n<xBairro>CONJUNTO SANTA MARIA</xBairro>\n<cMun>3106200</cMun>\n<xMun>Belo Horizonte</xMun>\n<UF>MG</UF>\n<CEP>9999999</CEP>\n<cPais>1058</cPais>\n<xPais>Brasil</xPais>\n</enderDest>\n<indIEDest>9</indIEDest>\n<email>email@email.com.br</email>\n</dest>\n<total>\n<ICMSTot>\n<vBC>0.00</vBC>\n<vICMS>0.00</vICMS>\n<vICMSDeson>0.00</vICMSDeson>\n<vFCPUFDest>0.00</vFCPUFDest>\n<vICMSUFDest>0.00</vICMSUFDest>\n<vICMSUFRemet>0.00</vICMSUFRemet>\n<vFCP>0.00</vFCP>\n<vBCST>0.00</vBCST>\n<vST>0.00</vST>\n<vFCPST>0.00</vFCPST>\n<vFCPSTRet>0.00</vFCPSTRet>\n<vProd>2480.00</vProd>\n<vFrete>0.00</vFrete>\n<vSeg>0.00</vSeg>\n<vDesc>0.00</vDesc>\n<vII>0.00</vII>\n<vIPI>0.00</vIPI>\n<vIPIDevol>0.00</vIPIDevol>\n<vPIS>0.00</vPIS>\n<vCOFINS>74.40</vCOFINS>\n<vOutro>0.00</vOutro>\n<vNF>2480.00</vNF>\n<vTotTrib>733.85</vTotTrib>\n</ICMSTot>\n</total>\n</infNFe>\n</NFe>\n</nfeProc>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/processarxml",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"processarxml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XMLporID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/exibirxml/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"exibirxml",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "XMLporID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/exibirxml/12",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"exibirxml",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Feb 2024 03:47:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<XMLData>\n    <id>12</id>\n    <xmlContent>&lt;nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"4.00\">\n&lt;NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n&lt;infNFe versao=\"4.00\" Id=\"NFe35240100000000000001550010000117371016243508\">\n&lt;ide>\n&lt;cUF>35&lt;/cUF>\n&lt;cNF>01624359&lt;/cNF>\n&lt;natOp>Venda&lt;/natOp>\n&lt;mod>55&lt;/mod>\n&lt;serie>1&lt;/serie>\n&lt;nNF>11708&lt;/nNF>\n&lt;dhEmi>2024-01-03T13:50:59-03:00&lt;/dhEmi>\n&lt;dhSaiEnt>2024-01-03T13:50:59-03:00&lt;/dhSaiEnt>\n&lt;tpNF>1&lt;/tpNF>\n&lt;idDest>1&lt;/idDest>\n&lt;cMunFG>3550308&lt;/cMunFG>\n&lt;tpImp>1&lt;/tpImp>\n&lt;tpEmis>1&lt;/tpEmis>\n&lt;cDV>5&lt;/cDV>\n&lt;tpAmb>1&lt;/tpAmb&gt;\n&lt;finNFe>1&lt;/finNFe>\n&lt;indFinal>1&lt;/indFinal>\n&lt;indPres>1&lt;/indPres>\n&lt;procEmi>0&lt;/procEmi>\n&lt;verProc>Software emissor&lt;/verProc>\n&lt;/ide>\n&lt;emit>\n&lt;CNPJ>66656526000132&lt;/CNPJ>\n&lt;xNome>EMPRESA EMISSORA 01&lt;/xNome>\n&lt;xFant>EMPRESA EMISSORA&lt;/xFant>\n&lt;enderEmit>\n&lt;xLgr>Rua modelo 00&lt;/xLgr>\n&lt;nro>580&lt;/nro>\n&lt;xBairro>Itaquera&lt;/xBairro>\n&lt;cMun>3550308&lt;/cMun>\n&lt;xMun>Sao Paulo&lt;/xMun>\n&lt;UF>SP&lt;/UF>\n&lt;CEP>9999999&lt;/CEP>\n&lt;cPais>1058&lt;/cPais>\n&lt;xPais>Brasil&lt;/xPais>\n&lt;fone>1120564868&lt;/fone>\n&lt;/enderEmit>\n&lt;IE>999999999999&lt;/IE>\n&lt;CRT>3&lt;/CRT>\n&lt;/emit>\n&lt;dest>\n&lt;CNPJ>02775205000174&lt;/CNPJ>\n&lt;xNome>EMPRESA COMPRADORA 01&lt;/xNome>\n&lt;enderDest>\n&lt;xLgr>RUA MODELO 01&lt;/xLgr>\n&lt;nro>8791&lt;/nro>\n&lt;xBairro>CONJUNTO SANTA MARIA&lt;/xBairro>\n&lt;cMun>3106200&lt;/cMun>\n&lt;xMun>Belo Horizonte&lt;/xMun>\n&lt;UF>MG&lt;/UF>\n&lt;CEP>9999999&lt;/CEP>\n&lt;cPais>1058&lt;/cPais>\n&lt;xPais>Brasil&lt;/xPais>\n&lt;/enderDest>\n&lt;indIEDest>9&lt;/indIEDest>\n&lt;email>email@email.com.br&lt;/email>\n&lt;/dest>\n&lt;total>\n&lt;ICMSTot>\n&lt;vBC>0.00&lt;/vBC>\n&lt;vICMS>0.00&lt;/vICMS>\n&lt;vICMSDeson>0.00&lt;/vICMSDeson>\n&lt;vFCPUFDest>0.00&lt;/vFCPUFDest>\n&lt;vICMSUFDest>0.00&lt;/vICMSUFDest>\n&lt;vICMSUFRemet>0.00&lt;/vICMSUFRemet>\n&lt;vFCP>0.00&lt;/vFCP>\n&lt;vBCST>0.00&lt;/vBCST>\n&lt;vST>0.00&lt;/vST>\n&lt;vFCPST>0.00&lt;/vFCPST>\n&lt;vFCPSTRet>0.00&lt;/vFCPSTRet>\n&lt;vProd>2480.00&lt;/vProd>\n&lt;vFrete>0.00&lt;/vFrete>\n&lt;vSeg>0.00&lt;/vSeg>\n&lt;vDesc>0.00&lt;/vDesc>\n&lt;vII>0.00&lt;/vII>\n&lt;vIPI>0.00&lt;/vIPI>\n&lt;vIPIDevol>0.00&lt;/vIPIDevol>\n&lt;vPIS>0.00&lt;/vPIS>\n&lt;vCOFINS>74.40&lt;/vCOFINS>\n&lt;vOutro>0.00&lt;/vOutro>\n&lt;vNF>2480.00&lt;/vNF>\n&lt;vTotTrib>733.85&lt;/vTotTrib>\n&lt;/ICMSTot>\n&lt;/total>\n&lt;/infNFe>\n&lt;/NFe>\n&lt;/nfeProc></xmlContent>\n</XMLData>"
+				}
+			]
+		},
+		{
+			"name": "File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/exibirxml",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"exibirxml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/exibirxml/12",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/exibirxml/12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"exibirxml",
+						"12"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

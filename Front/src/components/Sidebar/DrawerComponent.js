@@ -10,7 +10,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Box from "@mui/material/Box";
 import GridDados from "../Content/GridDados";
 import BulkFileXml from "../Content/BulkFileXml";
-import "./Styles/Sidebar.scss";
+import "./Styles/sidebar.scss";
 
 export default function DrawerComponent() {
   const [showGrid, setShowGrid] = useState("dados");

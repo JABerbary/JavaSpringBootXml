@@ -1,3 +1,6 @@
+-- Pode ser necessário criar uma sequence antes 
+CREATE SEQUENCE dadosnfe_seq START 1;
+
 -- public.dadosnfe definition
 
 -- Drop table
@@ -18,3 +21,19 @@ CREATE TABLE public.dadosnfe (
 	x_nome varchar(255) NULL,
 	CONSTRAINT dadosnfe_pkey PRIMARY KEY (id)
 );
+
+
+-- public.xmlnfe definition
+
+-- Drop table
+
+-- DROP TABLE public.xmlnfe;
+
+CREATE TABLE public.xmlnfe (
+	id int8 NOT NULL,
+	xml_content oid NULL,
+	CONSTRAINT xmlnfe_pkey PRIMARY KEY (id)
+);
+
+-- -- Zerar o autoincremento , caso necessário
+-- ALTER SEQUENCE xmlnfe_seq RESTART WITH 1;
