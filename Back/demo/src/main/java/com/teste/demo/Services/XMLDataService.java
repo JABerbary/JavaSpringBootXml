@@ -1,5 +1,4 @@
 package com.teste.demo.Services;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.teste.demo.Entities.XMLData;
@@ -11,7 +10,7 @@ import java.util.Optional;
 @Service
 public class XMLDataService {
 
-
+    @Autowired
     private XMLDataRepository repository;
 
     public XMLData salvar(XMLData xmlData) {

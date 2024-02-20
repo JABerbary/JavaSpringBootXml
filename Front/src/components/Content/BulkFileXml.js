@@ -1,26 +1,42 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import "./Styles/content.scss";
 
 export default function BulkFileXml() {
-  const [selectedMethod, setSelectedMethod] = useState("file"); // Estado para acompanhar o método selecionado (arquivo ou texto)
-  const [files, setFiles] = useState([]); // Estado para acompanhar os arquivos selecionados
-  const [dragState, setDragState] = useState(false); // Estado para acompanhar o estado de arrasto
+  const [selectedMethod, setSelectedMethod] = useState("file");
+  const [files, setFiles] = useState([]);
+  const [dragState, setDragState] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [dropMsg, setDropMsg] = useState(
     "Arraste o arquivo nesta área ou clique para fazer upload"
   );
 
-  const dropFileUpload = (e) => {};
-
-  const dragOverHandler = (e) => {};
+  const dropFileUpload = (e) => {
+    e.preventDefault();
+    const fileList = e.dataTransfer.files;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const xmlContent = e.target.result;
+      const blob = new Blob([xmlContent], { type: "text/xml" });
+      console.log(xmlContent);
+      handleSave(blob);
+    };
+    for (let i = 0; i < fileList.length; i++) {
+      reader.readAsText(fileList[i]);
+    }
+  };
 
   const handleDragEnter = (e) => {
     setDragState(true);
   };
-
   const handleDragLeave = (e) => {
     setDragState(false);
+  };
+  const handleCloseSnackbar = (event, reasson) => {
+    setSnackbarOpen(false);
   };
 
   const traditionalFileUpload = (e) => {
@@ -28,7 +44,45 @@ export default function BulkFileXml() {
     setFiles(selectedFiles);
   };
 
+  const handleSave = (blob) => {
+    const formData = new FormData();
+    const newReader = new FileReader();
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append(`file${i + 1}`, files[i]);
+    }
+
+    setTimeout(() => {
+      setSnackbarOpen(true);
+      setFiles([]);
+    }, 2000);
+
+    newReader.onload = function (event) {
+      const xmlContent = event.target.result;
+      console.log(xmlContent);
+      fetch("http://127.0.0.1:8080/processarxml", {
+        method: "POST",
+        headers: {
+          Accept: "application/xml",
+          "Content-Type": "application/xml",
+        },
+        body: xmlContent,
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to save XML");
+          }
+        })
+        .catch((error) => {
+          console.error("Error saving XML:", error);
+        });
+    };
+
+    newReader.readAsText(blob); // Lê o arquivo XML como texto
+  };
+
   const _textContent = (value) => {};
+  const dragOverHandler = (e) => {};
 
   return (
     <>
@@ -49,7 +103,7 @@ export default function BulkFileXml() {
                       id="fileUpload"
                       type="file"
                       hidden
-                      accept="text/xml"
+                      accept="application/xml"
                       onChange={(e) => traditionalFileUpload(e)}
                       multiple
                     />
@@ -83,10 +137,35 @@ export default function BulkFileXml() {
         </div>
       </div>
       <Box className="buttonContainer">
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            files.forEach((file) => handleSave(file));
+          }}
+          multiple
+        >
           Salvar
         </Button>
       </Box>
+      {/* {uploadSuccess && (
+        <div className="success-message">Upload bem-sucedido!</div>
+      )} */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          onClose={handleCloseSnackbar}
+          severity="success"
+        >
+          Upload bem-sucedido!
+        </MuiAlert>
+      </Snackbar>
     </>
   );
 }

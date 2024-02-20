@@ -2,9 +2,7 @@ package com.teste.demo.Controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.teste.demo.Services.XMLDataService;
@@ -13,6 +11,7 @@ import com.teste.demo.Entities.DadosNFe;
 import com.teste.demo.Entities.XMLData;
 import com.teste.demo.Helpers.NFSeHelper;
 import com.teste.demo.Services.DadosNFeService;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 
 @RestController
@@ -31,7 +30,6 @@ public class NFSecontroller {
             dadosNFeService.salvar(dadosNFe);
             
         } catch (Exception e) {
-            // Trate exceções de parsing aqui
             e.printStackTrace();
         }
     }
@@ -47,20 +45,31 @@ public class NFSecontroller {
         return dadosNFeService.buscarTodos();
     }
 
-    @PostMapping("/processarxml")
-    public void InserirXML(@RequestBody byte[] entity) {
-       try {
-        XMLData xmlData = new XMLData();
-        xmlData.setXmlContent(entity);
+    @PostMapping(value ="/processarxml",
+    produces = {"application/xml"},
+    consumes = {"application/xml"})
+    public void InserirXML(@RequestBody String xmlString) {
+    try {
+        // byte[] xmlBytes = xmlString.getBytes(StandardCharsets.UTF_8);
+        XmlMapper xmlMapper = new XmlMapper();
+        XMLData xmlData = xmlMapper.readValue(xmlString, XMLData.class);
+        xmlData.setXmlContent(xmlString);
         xmlDataService.salvar(xmlData);
     } catch (Exception e) {
         e.printStackTrace();
     }
     }
     
-    @GetMapping("/exibirxml/{id}")
-    public XMLData buscarXMLDataPorId(@PathVariable Long id) {
-        return xmlDataService.buscarXMLPorId(id).orElse(null);
+    @GetMapping(value ="/exibirxml/{id}", 
+    produces = {"application/xml"},
+    consumes = {"application/xml"})
+    public ResponseEntity<XMLData>  buscarXMLDataPorId(@PathVariable Long id) {
+        XMLData xmlData = xmlDataService.buscarXMLPorId(id).orElse(null);
+        if (xmlData != null) {
+            String xmlContent = NFSeHelper.decodeXmlEntities(xmlData.getXmlContent());
+            xmlData.setXmlContent(xmlContent);
+        }
+        return ResponseEntity.ok(xmlData);
     }
 
     @GetMapping("/exibirxml")

@@ -2,7 +2,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import "./Styles/Sidebar.scss";
+import "./Styles/sidebar.scss";
 export default function ToolbarComponent() {
   return (
     <AppBar className="app-bar">
