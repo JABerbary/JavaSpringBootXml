@@ -16,6 +16,15 @@ java/
     └── Data/ 
       └── database.sql
 
+##Collections 
+
+java/
+└── com/
+ └── teste/
+   └── demo/
+    └── Data/ 
+      └── Collections/
+
 ## Acompanhamento
 
 ### Backend
@@ -28,7 +37,7 @@ java/
 - [x] Definir estrutura Repo
 - [x] Definir estrutura Services
 - [x] String connections/cors
-- [ ] Mappers
+- [x] Mappers
 - [ ] Testes
 - [ ] Code Coverage
 - [ ] Refatoração
@@ -40,6 +49,7 @@ java/
 - [x] Estilização
 - [x] String connections
 - [x] Refresh page/callbacks(gridview)
-- [x] BulkFiles
+- [x] Batch files
+- [ ] Download Conteúdo
 - [ ] Testes
 - [ ] Refatoração
