@@ -78,7 +78,7 @@ export default function BulkFileXml() {
         });
     };
 
-    newReader.readAsText(blob); // Lê o arquivo XML como texto
+    newReader.readAsText(blob);
   };
 
   const _textContent = (value) => {};
