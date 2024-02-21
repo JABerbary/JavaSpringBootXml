@@ -19,8 +19,7 @@ import lombok.Data;
 @XmlRootElement 
 public class XMLData {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "xmlnfe_seq")
-    @SequenceGenerator(name = "xmlnfe_seq", sequenceName = "xmlnfe_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Lob
