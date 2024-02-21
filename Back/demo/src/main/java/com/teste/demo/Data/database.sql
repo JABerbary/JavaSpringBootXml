@@ -35,5 +35,23 @@ CREATE TABLE public.xmlnfe (
 	CONSTRAINT xmlnfe_pkey PRIMARY KEY (id)
 );
 
+--tabela auxiliar
+CREATE TABLE public.tabela_auxiliar (
+    id_dadosnfe int8 NOT NULL,
+    id_xmlnfe int8 NOT NULL,
+    CONSTRAINT fk_dadosnfe FOREIGN KEY (id_dadosnfe) REFERENCES dadosnfe(id),
+    CONSTRAINT fk_xmlnfe FOREIGN KEY (id_xmlnfe) REFERENCES xmlnfe(id),
+    CONSTRAINT tabela_auxiliar_pkey PRIMARY KEY (id_dadosnfe, id_xmlnfe)
+);
+
 -- -- Zerar o autoincremento , caso necessário
 -- ALTER SEQUENCE xmlnfe_seq RESTART WITH 1;
+
+--tabela auxiliar
+CREATE TABLE public.tabela_auxiliar (
+    id_dadosnfe int8 NOT NULL,
+    id_xmlnfe int8 NOT NULL,
+    CONSTRAINT fk_dadosnfe FOREIGN KEY (id_dadosnfe) REFERENCES dadosnfe(id),
+    CONSTRAINT fk_xmlnfe FOREIGN KEY (id_xmlnfe) REFERENCES xmlnfe(id),
+    CONSTRAINT tabela_auxiliar_pkey PRIMARY KEY (id_dadosnfe, id_xmlnfe)
+);
