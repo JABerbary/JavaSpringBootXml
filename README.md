@@ -50,6 +50,6 @@ java/
 - [x] String connections
 - [x] Refresh page/callbacks(gridview)
 - [x] Batch files
-- [ ] Download Conteúdo
+- [x] Download Conteúdo
 - [ ] Testes
 - [ ] Refatoração
