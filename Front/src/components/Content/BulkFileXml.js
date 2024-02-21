@@ -16,7 +16,6 @@ export default function BulkFileXml() {
 
   const dropFileUpload = (e) => {
     e.preventDefault();
-    const fileList = e.dataTransfer.files;
     const reader = new FileReader();
     reader.onload = function (e) {
       const xmlContent = e.target.result;
@@ -24,9 +23,6 @@ export default function BulkFileXml() {
       console.log(xmlContent);
       handleSave(blob);
     };
-    for (let i = 0; i < fileList.length; i++) {
-      reader.readAsText(fileList[i]);
-    }
   };
 
   const handleDragEnter = (e) => {
@@ -45,12 +41,7 @@ export default function BulkFileXml() {
   };
 
   const handleSave = (blob) => {
-    const formData = new FormData();
     const newReader = new FileReader();
-
-    for (let i = 0; i < files.length; i++) {
-      formData.append(`file${i + 1}`, files[i]);
-    }
 
     setTimeout(() => {
       setSnackbarOpen(true);
@@ -148,9 +139,6 @@ export default function BulkFileXml() {
           Salvar
         </Button>
       </Box>
-      {/* {uploadSuccess && (
-        <div className="success-message">Upload bem-sucedido!</div>
-      )} */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={6000}

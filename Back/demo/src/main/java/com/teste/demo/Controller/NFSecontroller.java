@@ -1,6 +1,7 @@
 package com.teste.demo.Controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,19 +44,19 @@ public class NFSecontroller {
       @PostMapping(value = "/processarxml",
             produces = {"application/xml"},
             consumes = {"application/xml"})
-    public ResponseEntity<Void> InserirXML(@RequestBody String xmlContent) {
+    public ResponseEntity<Void> inserirXML(@RequestBody String xmlContent) {
         try {
             // Salvar XMLData e obter o ID gerado
             XMLData xmlData = new XMLData();
             xmlData.setXmlContent(xmlContent);
             xmlData = xmlDataService.salvar(xmlData);
-            Long xmlDataId = xmlData.getId(); // ID do XMLData
+            // Long xmlDataId = xmlData.getId(); 
 
             // Extrair dados da NFSe
             DadosNFe dadosNFe = NFSeHelper.extrairDadosNFe(xmlContent);
-            dadosNFe.setId(xmlDataId); 
+            dadosNFe.setXmlData(xmlData); 
             dadosNFeService.salvar(dadosNFe);
-
+            
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             e.printStackTrace();
