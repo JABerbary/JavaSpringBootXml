@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -51,6 +50,9 @@ public class DadosNFe {
     
     @Column(name = "vnf")
     private Double vNF;
+
+    @Column(name = "created_at") 
+    private Timestamp createdAt;
     
     @ManyToOne
     @JoinColumn(name = "xmlnfe_id")

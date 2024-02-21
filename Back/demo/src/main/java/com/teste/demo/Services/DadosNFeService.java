@@ -33,10 +33,13 @@ public class DadosNFeService {
     public void atualizar(DadosNFe dadosNFe) {
         repository.save(dadosNFe);
     }
-
   
     public void excluirPorId(Long id) {
         repository.deleteById(id);
+    }
+
+    public List<DadosNFe> buscarorder() {
+        return repository.findAllByOrderByCreatedAtAsc();
     }
 
 }
