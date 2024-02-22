@@ -4,34 +4,40 @@
 
 Para iniciar o frontend, execute o seguinte comando:
 
+```bash
 npm start
+```
 
 para inciar o backend rodar o seguinte comando de depuração
 
+```bash
 ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:8000"
+```
 
 ##Caminho da database
 
-ao rodar o comando em cima o hibernate cria um schema da database mas caso precise aqui está o caminho da database 
+ao rodar o comando acima o hibernate cria um schema da database mas caso precise aqui está o caminho da database 
 
 feito em postgres
 
+```bash
 java/
 └── com/
  └── teste/
    └── demo/
     └── Data/ 
       └── database.sql
-
+```
 ##Collections 
 
+```bash
 java/
 └── com/
  └── teste/
    └── demo/
     └── Data/ 
       └── Collections/
-
+```
 ## Acompanhamento
 
 ### Backend
