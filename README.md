@@ -6,8 +6,15 @@ Para iniciar o frontend, execute o seguinte comando:
 
 npm start
 
+para inciar o backend rodar o seguinte comando de depuração
+
+./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:8000"
 
 ##Caminho da database
+
+ao rodar o comando em cima o hibernate cria um schema da database mas caso precise aqui está o caminho da database 
+
+feito em postgres
 
 java/
 └── com/
@@ -38,9 +45,8 @@ java/
 - [x] Definir estrutura Services
 - [x] String connections/cors
 - [x] Mappers
-- [ ] Testes
-- [ ] Code Coverage
-- [ ] Refatoração
+- [x] Testes
+- [x] Refatoração
 
 ### Frontend
 
@@ -51,5 +57,4 @@ java/
 - [x] Refresh page/callbacks(gridview)
 - [x] Batch files
 - [x] Download Conteúdo
-- [ ] Testes
-- [ ] Refatoração
+- [x] Refatoração
