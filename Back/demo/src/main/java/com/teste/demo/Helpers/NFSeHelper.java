@@ -45,12 +45,5 @@ public class NFSeHelper {
         return dadosNFe;
     }
 
-    public static String decodeXmlEntities(String xmlContent) {
-        xmlContent = xmlContent.replace("&lt;", "<")
-                               .replace("&gt;", ">")
-                               .replace("&amp;", "&")
-                               .replace("&quot;", "\"")
-                               .replace("&apos;", "'");
-        return xmlContent;
-    }
+ 
 }

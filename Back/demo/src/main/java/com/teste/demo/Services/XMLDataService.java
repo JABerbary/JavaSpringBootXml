@@ -1,8 +1,6 @@
 package com.teste.demo.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.teste.demo.Entities.DadosNFe;
 import com.teste.demo.Entities.XMLData;
 import com.teste.demo.Repositories.XMLDataRepository;
 
@@ -17,7 +15,7 @@ public class XMLDataService {
 
     public XMLData salvar(XMLData xmlData) {
         return repository.save(xmlData);
-     }
+    }
 
     public Optional<XMLData> buscarXMLPorId(Long id) {
         return repository.findById(id);
@@ -26,8 +24,6 @@ public class XMLDataService {
     public List<XMLData> buscarTodosXML() {
         return repository.findAll();
     }
-
-     
 
     // public void atualizar(XMLData xmlData) {
     //     repository.save(xmlData);
