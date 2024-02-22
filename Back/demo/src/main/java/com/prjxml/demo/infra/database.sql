@@ -8,20 +8,22 @@ CREATE SEQUENCE dadosnfe_seq START 1;
 -- DROP TABLE public.dadosnfe;
 
 CREATE TABLE public.dadosnfe (
-	id int8 NOT NULL,
+	id bigserial NOT NULL,
 	cnpj varchar(255) NULL,
 	cnpjdest varchar(255) NULL,
 	cuf int4 NULL,
-	dh_emi timestamp(6) NULL,
-	id_nfse varchar(255) NULL,
+	created_at timestamp(6) NULL,
+	dhemi timestamp(6) NULL,
+	idnfse varchar(255) NULL,
 	nnf int4 NULL,
 	vnf float8 NULL,
-	v_tot_trib float8 NULL,
-	x_fant varchar(255) NULL,
-	x_nome varchar(255) NULL,
-	CONSTRAINT dadosnfe_pkey PRIMARY KEY (id)
+	vtottrib float8 NULL,
+	xfant varchar(255) NULL,
+	xnome varchar(255) NULL,
+	xmlnfe_id int8 NULL,
+	CONSTRAINT dadosnfe_pkey PRIMARY KEY (id),
+	CONSTRAINT fkpfao7bjfax67li5xwyf1620af FOREIGN KEY (xmlnfe_id) REFERENCES public.xmlnfe(id)
 );
-
 
 -- public.xmlnfe definition
 
@@ -35,23 +37,11 @@ CREATE TABLE public.xmlnfe (
 	CONSTRAINT xmlnfe_pkey PRIMARY KEY (id)
 );
 
---tabela auxiliar
-CREATE TABLE public.tabela_auxiliar (
-    id_dadosnfe int8 NOT NULL,
-    id_xmlnfe int8 NOT NULL,
-    CONSTRAINT fk_dadosnfe FOREIGN KEY (id_dadosnfe) REFERENCES dadosnfe(id),
-    CONSTRAINT fk_xmlnfe FOREIGN KEY (id_xmlnfe) REFERENCES xmlnfe(id),
-    CONSTRAINT tabela_auxiliar_pkey PRIMARY KEY (id_dadosnfe, id_xmlnfe)
-);
 
--- -- Zerar o autoincremento , caso necessário
--- ALTER SEQUENCE xmlnfe_seq RESTART WITH 1;
+-- Zerar o autoincremento
+ALTER SEQUENCE dadosnfe_id_seq RESTART WITH 1;
+ALTER SEQUENCE xmlnfe_id_seq  RESTART WITH 1;
 
---tabela auxiliar
-CREATE TABLE public.tabela_auxiliar (
-    id_dadosnfe int8 NOT NULL,
-    id_xmlnfe int8 NOT NULL,
-    CONSTRAINT fk_dadosnfe FOREIGN KEY (id_dadosnfe) REFERENCES dadosnfe(id),
-    CONSTRAINT fk_xmlnfe FOREIGN KEY (id_xmlnfe) REFERENCES xmlnfe(id),
-    CONSTRAINT tabela_auxiliar_pkey PRIMARY KEY (id_dadosnfe, id_xmlnfe)
-);
+--encontrar a sequence
+SELECT pg_get_serial_sequence('public.dadosnfe', 'id');
+SELECT pg_get_serial_sequence('public.xmlnfe', 'id');
