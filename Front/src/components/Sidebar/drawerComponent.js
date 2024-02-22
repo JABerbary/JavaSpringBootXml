@@ -8,8 +8,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import FileIcon from "@mui/icons-material/InsertDriveFile";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Box from "@mui/material/Box";
-import GridDados from "../Content/GridDados";
-import BulkFileXml from "../Content/BulkFileXml";
+import GridDados from "../Content/gridDados";
+import BulkFileXml from "../Content/bulkFileXml";
 import "./Styles/sidebar.scss";
 
 export default function DrawerComponent() {

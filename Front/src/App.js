@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Drawer from "./components/Sidebar//DrawerComponent";
+import Drawer from "./components/Sidebar/drawerComponent";
 // import CssBaseline from "@mui/material/CssBaseline";
-import Toolbar from "./components/Sidebar/ToolbarComponent";
+import Toolbar from "./components/Sidebar/toolbarComponent";
 import "./App.css";
 
 function App() {
