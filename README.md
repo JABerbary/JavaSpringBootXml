@@ -16,7 +16,7 @@ para inciar o backend rodar o seguinte comando de depuração
 
 ##Caminho da database
 
-ao rodar o comando acima o hibernate cria um schema da database mas caso precise aqui está o caminho da database 
+ao rodar o comando acima o hibernate cria um schema da database, mas caso precise, aqui está o caminho da database 
 
 feito em postgres
 
