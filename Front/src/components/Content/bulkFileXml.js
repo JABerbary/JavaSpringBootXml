@@ -3,14 +3,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+
 import "./Styles/content.scss";
 
 export default function BulkFileXml() {
   const [files, setFiles] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [dropMsg] = useState(
-    /*" Arraste o arquivo nesta área ou */ "Clique aqui para fazer upload"
-  );
+  const [dropMsg] = useState("Clique aqui para fazer upload");
 
   const handleCloseSnackbar = () => {
     setSnackbarOpen(false);

@@ -1,12 +1,12 @@
-package com.teste.demo.Services;
+package com.prjxml.demo.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.teste.demo.Entities.DadosNFe;
-import com.teste.demo.Repositories.DadosNFeRepository;
+import com.prjxml.demo.domain.DadosNFe;
+import com.prjxml.demo.repository.DadosNFeRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,16 +30,18 @@ public class DadosNFeService {
         return repository.findAll();
     }
 
-    public void atualizar(DadosNFe dadosNFe) {
-        repository.save(dadosNFe);
-    }
-  
-    public void excluirPorId(Long id) {
-        repository.deleteById(id);
-    }
-
     public List<DadosNFe> buscarorder() {
         return repository.findAllByOrderByCreatedAtAsc();
     }
+
+    // public void atualizar(DadosNFe dadosNFe) {
+    //     repository.save(dadosNFe);
+    // }
+  
+    // public void excluirPorId(Long id) {
+    //     repository.deleteById(id);
+    // }
+
+    
 
 }

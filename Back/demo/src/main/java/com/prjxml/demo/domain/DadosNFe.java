@@ -1,4 +1,4 @@
-package com.teste.demo.Entities;
+package com.prjxml.demo.domain;
 
 import java.sql.Timestamp;
 

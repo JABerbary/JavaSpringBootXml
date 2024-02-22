@@ -1,7 +1,8 @@
-package com.teste.demo.Repositories;
-import com.teste.demo.Entities.XMLData;
+package com.prjxml.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.prjxml.demo.domain.XMLData;
 
 @Repository
 public interface XMLDataRepository extends JpaRepository<XMLData, Long> {

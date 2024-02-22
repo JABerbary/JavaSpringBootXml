@@ -1,23 +1,22 @@
-package com.teste.demo.Controller;
+package com.prjxml.demo.controller;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import com.teste.demo.Services.XMLDataService;
 
 import jakarta.servlet.http.HttpServletRequest;
-
 import org.springframework.web.bind.annotation.*;
-import com.teste.demo.Entities.DadosNFe;
-import com.teste.demo.Entities.XMLData;
-import com.teste.demo.Helpers.NFSeHelper;
-import com.teste.demo.Helpers.XmlFilesRequest;
-import com.teste.demo.Services.DadosNFeService;
+
+import com.prjxml.demo.domain.DadosNFe;
+import com.prjxml.demo.domain.XMLData;
+import com.prjxml.demo.helpers.NFSeHelper;
+import com.prjxml.demo.helpers.XmlFilesRequest;
+import com.prjxml.demo.services.DadosNFeService;
+import com.prjxml.demo.services.XMLDataService;
 
 
 @RestController
@@ -29,7 +28,7 @@ public class NFSecontroller {
     @Autowired
     private XMLDataService xmlDataService;
 
-    
+
     @PostMapping(value = "/processarxml",  consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Void> inserirXML(@RequestBody XmlFilesRequest xmlFilesRequest,
     @RequestHeader HttpHeaders headers, 
@@ -67,7 +66,7 @@ public class NFSecontroller {
             e.printStackTrace();
         }
     }
-   
+
     @GetMapping("/buscarnfse/{id}")
     public DadosNFe buscarDadosNFePorId(@PathVariable Long id) {
         return dadosNFeService.buscarPorId(id).orElse(null);
@@ -77,7 +76,6 @@ public class NFSecontroller {
     public List<DadosNFe> buscarTodos() {
         return dadosNFeService.buscarTodos();
     }
-
 
     @GetMapping(value ="/exibirxml/{id}", 
     produces = {"application/xml"},
@@ -95,20 +93,4 @@ public class NFSecontroller {
 
 
 
-// @PostMapping(value ="/processarxml",
-    // produces = {"application/xml"},
-    // consumes = {"application/xml"})
-    // public void InserirXML(@RequestBody String xmlContent) {
-    // try {
-    //     XmlMapper xmlMapper = new XmlMapper();
-    //     XMLData xmlData = xmlMapper.readValue(xmlContent, XMLData.class);
 
-    //     xmlData.setXmlContent(xmlContent);
-    //     xmlDataService.salvar(xmlData);
-
-    //     DadosNFe dadosNFe = NFSeHelper.extrairDadosNFe(xmlContent);
-    //     dadosNFeService.salvar(dadosNFe);
-    // } catch (Exception e) {
-    //     e.printStackTrace();
-    // }
-    // }

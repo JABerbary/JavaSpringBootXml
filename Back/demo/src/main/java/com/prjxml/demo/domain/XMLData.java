@@ -1,4 +1,4 @@
-package com.teste.demo.Entities;
+package com.prjxml.demo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

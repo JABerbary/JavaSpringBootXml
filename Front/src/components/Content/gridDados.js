@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import { IconButton } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import DataHandler from "../Helper/gridDadosHelper";
 import axios from "axios";
@@ -63,7 +65,11 @@ export default function GridDados() {
             });
         };
 
-        return <button onClick={handleDownload}>Baixar XML</button>;
+        return (
+          <IconButton onClick={handleDownload}>
+            <CloudDownloadIcon />
+          </IconButton>
+        );
       },
     },
   ];

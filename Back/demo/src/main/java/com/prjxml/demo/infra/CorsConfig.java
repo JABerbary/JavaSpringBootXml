@@ -1,4 +1,4 @@
-package com.teste.demo.Data;
+package com.prjxml.demo.infra;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

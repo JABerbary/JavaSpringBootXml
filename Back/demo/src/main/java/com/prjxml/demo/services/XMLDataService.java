@@ -1,8 +1,9 @@
-package com.teste.demo.Services;
+package com.prjxml.demo.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.teste.demo.Entities.XMLData;
-import com.teste.demo.Repositories.XMLDataRepository;
+
+import com.prjxml.demo.domain.XMLData;
+import com.prjxml.demo.repository.XMLDataRepository;
 
 import java.util.List;
 import java.util.Optional;
