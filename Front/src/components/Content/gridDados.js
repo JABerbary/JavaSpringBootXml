@@ -1,13 +1,19 @@
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import { IconButton } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { IconButton, Button, Snackbar, LinearProgress } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import DataHandler from "../Helper/gridDadosHelper";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import MuiAlert from "@mui/material/Alert";
+import "./Styles/content.scss";
 
 export default function GridDados() {
   const [rows, setRows] = useState([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8080/buscartodosnfse")
@@ -21,6 +27,23 @@ export default function GridDados() {
       });
   }, []);
 
+  const handleDelete = () => {
+    axios
+      .delete("http://127.0.0.1:8080/deletartodosxml")
+      .then(() => {
+        console.log("Registros excluídos com sucesso.");
+        setRows([]);
+        setLoading(false);
+        setSnackbarOpen(true);
+      })
+      .catch((error) => {
+        console.error("Erro ao excluir registros:", error);
+      });
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
   const columns = [
     { field: "id", headerName: "ID", width: 20 },
     { field: "cnpj", headerName: "CNPJ", width: 160 },
@@ -73,10 +96,34 @@ export default function GridDados() {
       },
     },
   ];
-
   return (
-    <Box>
-      <DataGrid rows={rows} columns={columns} />
-    </Box>
+    <>
+      <Box>
+        <DataGrid rows={rows} columns={columns} />
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<DeleteIcon />}
+          onClick={() => handleDelete()}
+        >
+          Apagar registros
+        </Button>
+      </Box>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <MuiAlert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Registros excluídos com sucesso!
+        </MuiAlert>
+      </Snackbar>
+      {loading && <LinearProgress />}
+    </>
   );
 }

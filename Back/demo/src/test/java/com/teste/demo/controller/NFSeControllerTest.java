@@ -102,4 +102,18 @@ public class NFSeControllerTest {
 
 
     }
+
+    @Test
+public void testDeletarTodosXMLData() {
+    doNothing().when(dadosNFeService).excluirTodos();
+    doNothing().when(xmlDataService).deletarTodos();
+
+    ResponseEntity<Void> responseEntity = nfseController.deletarTodosXMLData();
+
+    assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+
+    verify(dadosNFeService, times(1)).excluirTodos();
+
+    verify(xmlDataService, times(1)).deletarTodos();
+}
 }

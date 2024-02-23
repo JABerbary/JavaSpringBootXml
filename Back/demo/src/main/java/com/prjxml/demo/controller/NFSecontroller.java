@@ -66,7 +66,7 @@ public class NFSecontroller {
             e.printStackTrace();
         }
     }
-
+    
     @GetMapping("/buscarnfse/{id}")
     public DadosNFe buscarDadosNFePorId(@PathVariable Long id) {
         return dadosNFeService.buscarPorId(id).orElse(null);
@@ -88,6 +88,18 @@ public class NFSecontroller {
     @GetMapping("/exibirxml")
     public List<XMLData> buscarTodosXMLData() {
         return xmlDataService.buscarTodosXML();
+    }
+
+    @DeleteMapping("/deletartodosxml")
+    public ResponseEntity<Void> deletarTodosXMLData() {
+        try {
+            dadosNFeService.excluirTodos(); 
+            xmlDataService.deletarTodos(); 
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }
 

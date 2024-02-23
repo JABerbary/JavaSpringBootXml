@@ -1,4 +1,5 @@
 package com.prjxml.demo.services;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,15 @@ public class XMLDataService {
         return repository.findAll();
     }
 
+    public void deletarTodos() {
+        repository.deleteAll();
+        repository.resetAutoIncrement(); 
+    }
     // public void atualizar(XMLData xmlData) {
-    //     repository.save(xmlData);
+    // repository.save(xmlData);
     // }
 
     // public void excluirPorId(Long id) {
-    //     repository.deleteById(id);
+    // repository.deleteById(id);
     // }
 }

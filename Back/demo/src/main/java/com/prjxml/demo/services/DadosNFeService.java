@@ -2,7 +2,6 @@ package com.prjxml.demo.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.prjxml.demo.domain.DadosNFe;
@@ -33,7 +32,11 @@ public class DadosNFeService {
     public List<DadosNFe> buscarorder() {
         return repository.findAllByOrderByCreatedAtAsc();
     }
-
+    
+    public void excluirTodos() {
+        repository.deleteAll();
+        repository.resetAutoIncrement(); 
+    }
     // public void atualizar(DadosNFe dadosNFe) {
     //     repository.save(dadosNFe);
     // }

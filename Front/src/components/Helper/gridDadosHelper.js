@@ -1,4 +1,3 @@
-// DataHandler.js
 class DataHandler {
   static formatarCNPJ(cnpj) {
     return cnpj.replace(

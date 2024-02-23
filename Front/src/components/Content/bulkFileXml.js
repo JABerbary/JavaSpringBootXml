@@ -3,13 +3,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-
+import LinearProgress from "@mui/material/LinearProgress";
 import "./Styles/content.scss";
 
 export default function BulkFileXml() {
   const [files, setFiles] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [dropMsg] = useState("Clique aqui para fazer upload");
+  const [loading, setLoading] = useState(false);
 
   const handleCloseSnackbar = () => {
     setSnackbarOpen(false);
@@ -50,8 +51,8 @@ export default function BulkFileXml() {
   }
 
   async function handleFileUpload() {
+    setLoading(true);
     const arrXmlContent = await readFiles();
-
     const requestBody = {
       xmlFiles: arrXmlContent,
     };
@@ -68,9 +69,13 @@ export default function BulkFileXml() {
         if (!response.ok) {
           throw new Error("Failed to save XML");
         }
+        setLoading(false);
+        setSnackbarOpen(true);
+        setFiles([]);
       })
       .catch((error) => {
         console.error("Error saving XML:", error);
+        setLoading(false);
       });
   }
 
@@ -134,6 +139,7 @@ export default function BulkFileXml() {
           Upload bem-sucedido!
         </MuiAlert>
       </Snackbar>
+      {loading && <LinearProgress />}
     </>
   );
 }
